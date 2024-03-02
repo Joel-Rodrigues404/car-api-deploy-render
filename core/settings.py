@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,13 +86,8 @@ WSGI_APPLICATION = "core.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://carapidb_user:vOOvINjpfHS6u19DU0EHrekhp5vTSYzT@dpg-cnhicvnsc6pc73dvgv4g-a.oregon-postgres.render.com/carapidb',
-        conn_max_age=600
-    )
-}
+
+DATABASES = {"default": dj_database_url.parse(str(os.environ.get("DATABASE_URL")))}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
