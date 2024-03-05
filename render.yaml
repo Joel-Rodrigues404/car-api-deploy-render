@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: car-api-deploy-render
+    name: my-tours-api-deploy-render
     plan: starter
     env: python
     region: frankfurt  # region should be same as your database region.
